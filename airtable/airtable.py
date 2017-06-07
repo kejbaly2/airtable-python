@@ -111,7 +111,12 @@ class Airtable(object):
         while True:
             response = self.get(
                 table_name, limit=batch_size, offset=offset,
-                filter_by_formula=filter_by_formula, view=view)
+                filter_by_formula=filter_by_formula, view=view,
+                fields=fields)
+            if response.get('error'):
+                raise RuntimeError('API returned code: ({}) {}'.format(
+                    response['error']['code'],
+                    response['error']['message'] or "UNKNOWN"))
             for record in response.pop('records'):
                 yield record
             if 'offset' in response:
