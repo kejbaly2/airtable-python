@@ -2,3 +2,27 @@
 *.ipynb
 .idea
 venv
+
+# vim swap files
+*.sw*
+
+*.py[cod]
+
+# C extensions
+*.c
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
